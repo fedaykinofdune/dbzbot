@@ -61,7 +61,7 @@ socket.on('connect', function(){
 	
 					if(contains(data.message, ["!help"]) && data.room=="oldgame" && data.user!= "dbzbot" )
 					{
-						outputBuffer.push({room: data.room, message: " "+data.user+" Welcome to my room. I am DBZbot. I host a a very popular game, 'ROCK PAPER SCISSORS'. \\ Tip the bot 0.3. And pm the bot your choice. To do so, type '/pm dbzbot rock' or '/pm dbzbot scissors' or '/pm dbzbot paper'. \\ When your opponent tips the bot, you will be tagged to know the result. If you win, you will get 0.55."});
+						outputBuffer.push({room: data.room, message: " "+data.user+" Welcome to my room. I am DBZbot. I host a a very popular game, 'ROCK, PAPER, SCISSORS'. \\ Tip the bot 0.3. And PM the bot your choice. To do so, type '/pm dbzbot rock' or '/pm dbzbot scissors' or '/pm dbzbot paper'. \\ When your opponent tips the bot, you will be tagged to know the result. If you win, you will get 0.55."});
 						console.log("REACHED");
 					}
 					
@@ -155,7 +155,7 @@ socket.on('connect', function(){
 										socket.emit('joinroom', {join: "dbzbot:"+user2});		
 									else
 										socket.emit('joinroom', {join: user2+":dbzbot"});
-									outputBuffer.push({room: data.room, message: " "+challenger1+" and "+challenger2+". Please make sure you have sent a pm to the bot with your choice."});
+									outputBuffer.push({room: data.room, message: " "+challenger1+" and "+challenger2+". Please make sure you have sent a PM to the bot with your choice."});
 									console.log("Challenger1 is ready.");
 							
 									
@@ -174,7 +174,7 @@ socket.on('connect', function(){
 						
 						c1_choice="rock";
 						console.log(challenger1+": ROCK");
-						outputBuffer.push({room: data.room, message: "Thank you for messaging. Please go to #oldgame."});
+						outputBuffer.push({room: data.room, message: "Thank you for messaging. Please return to #oldgame."});
 						
 					}
 					if(contains(data.message,["paper"]) && data.user==challenger1 && (data.room == "dbzbot:"+user1 || data.room == user1+":dbzbot") )
@@ -182,7 +182,7 @@ socket.on('connect', function(){
 						
 						c1_choice="paper"; 
 						console.log("Challenger1: PAPER");
-						outputBuffer.push({room: data.room, message: "Thank you for messaging. Please go to #oldgame."});
+						outputBuffer.push({room: data.room, message: "Thank you for messaging. Please return to #oldgame."});
 						
 					}
 					if(contains(data.message,["scissors"]) && data.user==challenger1 && (data.room == "dbzbot:"+user1 || data.room == user1+":dbzbot") )
@@ -190,7 +190,7 @@ socket.on('connect', function(){
 						
 						c1_choice="scissors"; 
 						console.log("Challenger1: scissors");
-						outputBuffer.push({room: data.room, message: "Thank you for messaging. Please go to #oldgame."});
+						outputBuffer.push({room: data.room, message: "Thank you for messaging. Please return to #oldgame."});
 						
 					}
 					if(contains(data.message,["rock"]) && data.user==challenger2 &&(data.room == "dbzbot:"+user2 || data.room == user2+":dbzbot") )
@@ -198,7 +198,7 @@ socket.on('connect', function(){
 						
 						c2_choice="rock"; 
 						console.log("Challenger2: ROCK");
-						outputBuffer.push({room: data.room, message: "Thank you for messaging. Please go to #oldgame."});
+						outputBuffer.push({room: data.room, message: "Thank you for messaging. Please return to #oldgame."});
 						
 					}
 					if(contains(data.message,["paper"]) && data.user==challenger2 &&(data.room == "dbzbot:"+user2 || data.room == user2+":dbzbot") )
@@ -206,7 +206,7 @@ socket.on('connect', function(){
 						
 						c2_choice="paper"; 
 						console.log("Challenger2: PAPER");
-						outputBuffer.push({room: data.room, message: "Thank you for messaging. Please go to #oldgame."});
+						outputBuffer.push({room: data.room, message: "Thank you for messaging. Please return to #oldgame."});
 						
 					}
 					if(contains(data.message,["scissors"]) && data.user==challenger2 &&(data.room == "dbzbot:"+user2 || data.room == user2+":dbzbot"))
@@ -214,7 +214,7 @@ socket.on('connect', function(){
 						
 						c2_choice="scissors"; 
 						console.log("Challenger2: scissors");
-						outputBuffer.push({room: data.room, message: "Thank you for messaging. Please go to #oldgame."});
+						outputBuffer.push({room: data.room, message: "Thank you for messaging. Please return to #oldgame."});
 						
 					}
 					
@@ -222,7 +222,7 @@ socket.on('connect', function(){
 					{
 						if(c1_choice==c2_choice)
 						{
-							outputBuffer.push({room:"oldgame", message: " "+challenger1+" : "+c1_choice+" \\ "+challenger2+" : "+c2_choice+" \\ Both have chosen the same. Please pm me with your choices again."});
+							outputBuffer.push({room:"oldgame", message: " "+challenger1+" : "+c1_choice+" \\ "+challenger2+" : "+c2_choice+" \\ Both have chosen the same. Please PM me with your choices again."});
 							c1_choice="NULL";
 							c2_choice="NULL";
 						}
