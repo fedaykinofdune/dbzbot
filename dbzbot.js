@@ -92,6 +92,9 @@ socket.on('connect', function(){
 
 					if(contains(data.message, ["!owner"]) && data.room=="oldgame" && data.user!= "dbzbot" )
 						outputBuffer.push({room: data.room, message: " "+data.user+", I am owned by hjdask."});
+						
+					if(contains(data.message, ["!developers"]) && data.room=="oldgame" && data.user!= "dbzbot" )
+						outputBuffer.push({room: data.room, message: " "+data.user+", I was coded by Gaara and Devthedev! "});
 	
 					
 					if(contains(data.message, ["<span class='label label-success'>has tipped " + username]) && data.room=="oldgame")
